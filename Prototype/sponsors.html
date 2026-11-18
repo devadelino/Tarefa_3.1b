@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gestão de patrocinadores no protótipo Animalec.">
+  <title>Animalec | Sponsors</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/sponsors.css">
+  <script src="js/storage.js" defer></script>
+  <script src="js/sponsors.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-title" href="index.html">ANIMALEC</a>
+    <nav aria-label="Navegação principal">
+      <a class="header-link" href="index.html">Menu principal</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <header class="page-heading page-heading-left">
+      <h1>GESTÃO DE SPONSORS</h1>
+      <p>Consultar e gerir os patrocinadores associados aos animais.</p>
+    </header>
+
+    <section id="list-view" aria-labelledby="list-title">
+      <div class="section-toolbar">
+        <h2 id="list-title">Lista de patrocinadores</h2>
+        <div class="toolbar-actions">
+          <label class="visually-hidden" for="sponsor-search">Pesquisar patrocinadores</label>
+          <input class="search-input" type="search" id="sponsor-search" placeholder="Pesquisar...">
+          <button class="button button-primary" type="button" id="add-sponsor">ADICIONAR</button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">NOME</th>
+              <th scope="col">EMAIL</th>
+              <th scope="col">ANIMAIS ASSOCIADOS</th>
+              <th scope="col">AÇÕES</th>
+            </tr>
+          </thead>
+          <tbody id="sponsors-table-body"></tbody>
+        </table>
+        <p class="empty-message" id="sponsors-empty" hidden>Não foram encontrados patrocinadores.</p>
+      </div>
+    </section>
+
+    <section id="form-view" aria-labelledby="form-title" hidden>
+      <h2 id="form-title">Adicionar patrocinador</h2>
+      <form id="sponsor-form" class="form-panel">
+        <input type="hidden" id="sponsor-id">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="sponsor-name">Nome <span class="required-mark">*</span></label>
+            <input class="field" id="sponsor-name" name="name" type="text" maxlength="100" required>
+          </div>
+          <div class="form-field">
+            <label for="sponsor-email">Email</label>
+            <input class="field" id="sponsor-email" name="email" type="email" maxlength="150">
+          </div>
+          <div class="form-field">
+            <label for="sponsor-website">Website</label>
+            <input class="field" id="sponsor-website" name="website" type="url" placeholder="https://...">
+          </div>
+          <div class="form-field">
+            <label for="sponsor-logo">Endereço do logótipo (URL)</label>
+            <input class="field" id="sponsor-logo" name="logo" type="url" placeholder="https://...">
+          </div>
+          <fieldset class="form-field full-width">
+            <legend>Animais associados</legend>
+            <p class="field-help">Pode selecionar mais do que um animal.</p>
+            <div class="checkbox-list" id="sponsor-animals"></div>
+          </fieldset>
+          <div class="form-field full-width">
+            <label for="sponsor-description">Descrição</label>
+            <textarea class="field textarea" id="sponsor-description" name="description" rows="4" maxlength="1000"></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="button" type="button" id="cancel-sponsor">CANCELAR</button>
+          <button class="button button-primary" type="submit">GUARDAR</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="detail-view" aria-labelledby="detail-title" hidden>
+      <div class="detail-panel">
+        <h2 id="detail-title">Detalhes do patrocinador</h2>
+        <dl class="detail-grid" id="sponsor-details"></dl>
+        <div class="form-actions">
+          <button class="button" type="button" id="back-from-details">VOLTAR À LISTA</button>
+          <button class="button button-primary" type="button" id="edit-from-details">EDITAR</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">ANIMALEC · Protótipo académico de demonstração</footer>
+</body>
+</html>
